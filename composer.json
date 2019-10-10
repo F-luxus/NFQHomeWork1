@@ -1,0 +1,20 @@
+{
+    "name": "root/homework1",
+    "require": {
+        "jakub-onderka/php-console-color": "^0.2.0"
+    },
+    "authors": [
+        {
+            "name": "Tomas Kleinauskas",
+            "email": "kleinauskastom@gmail.com"
+        }
+    ],
+	"autoload": {
+		"files": [
+		"functions/sumfunc1.php",
+		"functions/sumfunc2.php",
+		"functions/sumfunc3.php",
+		"functions/sumfunc4.php"
+		]
+	}
+}
