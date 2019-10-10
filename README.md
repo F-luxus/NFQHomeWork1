@@ -1,7 +1,7 @@
-# Namų darbų paiškinimas
+# Namų darbų paaiškinimas
 > **function** calculateHomeWorkSum(...$numbers)
 
-**...$numbers **- Ši kombinacija trijų taškų pagalba sukuria masyvą iš visų duomenų paduotų į funkciją. Pateikus į funkciją duotus pavyzdinius duomenis `3,2.2,'1'`  duomenis sudeda nepriklausomai ar nurodytas skaičius yra **string, float, int** tipo, todėl funkcijos rezutatas `6.2`
+** ...$numbers ** - Ši kombinacija, trijų taškų, sukuria masyvą iš visų duomenų paduotų į funkciją. Pateikus į funkciją duotus pavyzdinius duomenis `3,2.2,'1'`  duomenis sudeda nepriklausomai ar nurodytas skaičius yra **string, float, int** tipo, todėl funkcijos rezutatas `6.2`
 
 > **function** calculateHomeWorkSum(...$numbers): int
 
@@ -21,7 +21,7 @@ Nurodytos funkcijos rezultas `6`
 
 > **function** calculateHomeWorkSum(int ...$numbers): int su **strict_types=1** deklaracija
 
-**strict_types=1**- deklaracija nurodo, kad visi žemiau naudojami raktažodžiai privalo atitikti tuos, kuriuos nurodoma, vadinasi šiuo atveju pateikti **float,string** kintamieji nebebūtų verčiami į **int** ir tokiu atveju grąžintų klaidą. Tačiau `declare(strict_types=1);` yra deklaruotas funkcijos faile, o funkcija grąžina su `return` duomenis į iššauktą funkciją pradiniame faile, kuriame nėra nurodyta `declare(strict_types=1);`
+**strict_types=1** deklaracija nurodo, kad visi žemiau naudojami raktažodžiai privalo atitikti tuos, kuriuos nurodoma, vadinasi šiuo atveju pateikti **float,string** kintamieji nebebūtų verčiami į **int** ir tokiu atveju grąžintų klaidą. Tačiau `declare(strict_types=1);` yra deklaruotas funkcijos faile, o funkcija grąžina su `return` duomenis į iššauktą funkciją pradiniame faile, kuriame nėra nurodyta `declare(strict_types=1);`.
 Į funkciją pateikus duotus pavyzdinius duomenis `3,2.2,'1'` 
 `2.2` **float** tipo skaičius verčiamas į **int** tipą apvalinant iki `2`.
 `'1'` **string** tipo skaičius verčiamas į **int** tipą.
