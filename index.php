@@ -1,5 +1,4 @@
 <?php
-error_reporting(0);
 $loader = require_once __DIR__ . '/vendor/autoload.php';
 $consoleColor = new JakubOnderka\PhpConsoleColor\ConsoleColor();
 

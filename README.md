@@ -1,32 +1,23 @@
-
 # Namų darbų paaiškinimas
-> **function** calculateHomeWorkSum(...$numbers)
+```
+function calculateHomeWorkSum(...$numbers)
+```
+Funkcija sukuria masyvą iš visų duomenų paduotų į funkciją. Pateikus į funkciją duotus pavyzdinius duomenis **3,2.2,'1'** duomenis sudeda nepriklausomai ar nurodytas skaičius yra string, float, int tipo, todėl funkcijos rezutatas **6.2**  
 
- **...$numbers** - Ši kombinacija, trijų taškų, sukuria masyvą iš visų duomenų paduotų į funkciją. Pateikus į funkciją duotus pavyzdinius duomenis `3,2.2,'1'`  duomenis sudeda nepriklausomai ar nurodytas skaičius yra **string, float, int** tipo, todėl funkcijos rezutatas `6.2`  
-
-> **function** calculateHomeWorkSum(...$numbers): int
-
-**: int**- parametras nurodo, kad visi duomenys paduodami į funkciją turi būti nurodyto tipo, o į funkciją pateikus duotus pavyzdinius duomenis `3,2.2,'1'` gaunamas atsakymas:  
-`2.2` **float** tipas nėra **int**, todėl skaičius apvalinamas iki `2`, o tai skaičių padaro **int** tipo.  
-`'1'` **string** tipo skaičius automatiškai verčiamas į **int** tipą.  
-Nurodytos funkcijos rezultatas `6`
-
-
-> **function** calculateHomeWorkSum(int ...$numbers): int
-
-**int ...**$numbers - parametras nurodo, kad visi duomenys bus paverčiami į **int** tipo duomenis ir tik tada paruošiami grąžinimui. Todėl į funkciją pateikus duotus pavyzdinius duomenis `3,2.2,'1'`   
-`2.2` **float** tipo skaičius verčiamas į **int** tipą apvalinant iki `2`.  
-`'1'` **string** tipo skaičius verčiamas į **int** tipą.  
-Nurodytos funkcijos rezultas `6`
+```
+function calculateHomeWorkSum(...$numbers): int
+```
+Funkcijoje yra panaudotas **: int** parametras, kuris nurodo, koks tipas bus grąžinamas iškvietus funkciją.  
+Nors funkcija ir suskaičiuoja sumą pagal skirtingų tipų **(int[3],float[2.2],string[1])** duomenis, tačiau dėl **: int** parametro įtakos rezultatas privalo būti grąžinamas tik **int** tipo, todėl galutinė išvesti yra **6**.  
+```( float[6.2] --> int[6] )```
 
 
-> **function** calculateHomeWorkSum(int ...$numbers): int su **strict_types=1** deklaracija
-
-**strict_types=1** deklaracija nurodo, kad visi žemiau naudojami raktažodžiai privalo atitikti tuos, kuriuos nurodoma, vadinasi šiuo atveju pateikti **float,string** kintamieji nebebūtų verčiami į **int** ir tokiu atveju grąžintų klaidą. Tačiau `declare(strict_types=1);` yra deklaruotas funkcijos faile, o funkcija grąžina su `return` duomenis į iššauktą funkciją pradiniame faile, kuriame nėra nurodyta `declare(strict_types=1);`.  
-Į funkciją pateikus duotus pavyzdinius duomenis `3,2.2,'1'`   
-`2.2` **float** tipo skaičius verčiamas į **int** tipą apvalinant iki `2`.  
-`'1'` **string** tipo skaičius verčiamas į **int** tipą.  
-Nurodytos funkcijos rezultas `6`
-
-> Rezultatai
-![Code](http://nfq-siauliai.us.lt/NFQHomeWork1/nfq.png "Code")
+```
+function calculateHomeWorkSum(int ...$numbers): int su strict_types=1 deklaracija
+```
+**strict_types=1** direktyva nurodo, kad faile, kuriame yra deklaruota ši direktyva, kintamieji bus priimami tik tokio tipo, kokio buvo deklaruoti, jei yra panaudojamas kito tipo kintamasis negu buvo deklaruotas, sistema grąžins **TypeError** klaidą dėl netinkamai panaudoto tipo. Tačiau klaida nėra atvaizduojama, nes **strict_types** buvo deklaruota atskirame funckijos faile, o failas, autoloader pagalba, yra importuojamas į index.php failą. Pagal dokumentaciją, direktyva nepaveiks pagrindinio failo, jei failas su direktyva yra importuojamas iš kito failo.  
+Todėl funkcija **calculateHomeWorkSum(int ...$numbers): int** veikia be klaidos, o **float** tipo kintamieji verčiami į **int** tipą pagal pirmąjį float kintamojo skaitmenį:   
+```(2.8 -> 2)```  
+```(1.8 -> 1)```  
+```(2.2 -> 2)```  
+ir **string** tipo skaitinės reikšmės kintamieji taip pat verčiami į **int** tipą. Galutinis rezultatas: **6**  
